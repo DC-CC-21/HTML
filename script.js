@@ -1,9 +1,12 @@
 var canvas = document.getElementById("canvas");
+var WIDTH = document.body.clientWidth;
+var HEIGHT = document.body.clientHeight;
 var WIDTH = window.innerWidth;
 var HEIGHT = window.innerHeight;
 var code = function(js) {
   with (js) {
     const canvasSize = WIDTH < HEIGHT ? WIDTH : HEIGHT;
+    document.getElementById("h1").innerHTML = canvasSize;
     size(canvasSize, canvasSize);
     // size(583,583);
     ///////////////////////
@@ -35,7 +38,36 @@ var code = function(js) {
     var sauron = loadImage(
       "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FSauron.svg?v=1634678278976"
     );
-    
+    var gondor = loadImage(
+      "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fgondor.svg?v=1634694885748"
+    );
+    var minas_morgul = loadImage(
+      "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fminas%20morgul.svg?v=1634695849422"
+    );
+    var treasure_erebor = loadImage(
+      "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Ftreasure%20of%20erebor.svg?v=1634696052335"
+    );
+    var mordor = loadImage(
+      "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FMordor.svg?v=1634678057364"
+    );
+    var amon_hen = loadImage(
+      "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Famon%20hen.svg?v=1634696395448"
+    );
+    var rivendell = loadImage(
+      "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Frivendell.svg?v=1634696552570"
+    );
+    var argonath = loadImage(
+      "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fargonath.svg?v=1634696921882"
+    );
+    var bag_end = loadImage(
+      "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fbag%20end.svg?v=1634697392933"
+    );
+    var moria = loadImage(
+      "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fmoria.svg?v=1634851182269"
+    );
+    var beacons = loadImage(
+      "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fbeacons.svg?v=1634705335862"
+    );
     /** -- Custom Backgrounds -- **/
     background(0, 0);
     var thickness = width / 2;
@@ -50,14 +82,22 @@ var code = function(js) {
       rect(60, 60, width / 1.2, height / 1.2, 36);
     }
     var settingBg = get();
-    
-    background(0,0)
-    for(var i = 0; i < height/3.5; i ++){
-    stroke(0,255-map(i,0,height/3.5,0,255));
-    strokeWeight(2);
-    line(0,i,width,i);
-}
-var fadeBg = get();
+    // println(canvasSize)
+    background(0, 0);
+    for (var i = 0; i < map(50, 0, 682, 0, canvasSize); i++) {
+      stroke(255, 255 - map(i, 0, map(50, 0, 682, 0, canvasSize), 0, 255));
+      strokeWeight(2);
+      line(0, i, width, i);
+    }
+    var fadeBgTop = get();
+
+    background(0, 0);
+    for (var i = height; i > height / 1.1; i--) {
+      stroke(0, map(i, height, height / 1.1, 255, 0));
+      strokeWeight(2);
+      line(0, i, width, i);
+    }
+    var fadeBgBtm = get();
     //}
 
     background(0, 0);
@@ -67,41 +107,174 @@ var fadeBg = get();
     var coins = [];
     var gameBoard = [
       [
-        "h13,",
-        "b1 ,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,b1",
-        "b1 ,c ,b1,b1,b1,c ,c ,c ,b1,b1,b1,c ,b1",
-        "b1 ,c ,b1,c ,c ,c ,c ,c ,c ,c ,b1,c ,b1",
-        "b1 ,c ,b1,c ,c ,c ,c ,c ,c ,c ,b1,c ,b1",
-        "b1 ,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,b1",
-        "b1 ,c ,c ,c ,c ,c ,p ,c ,c ,c ,c ,c ,b1",
-        "b1 ,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,b1",
-        "b1 ,c ,b1,c ,c ,c ,c ,c ,c ,c ,b1,c ,b1",
-        "b1 ,c ,b1,c ,c ,c ,c ,c ,c ,c ,b1,c ,b1",
-        "b1 ,c ,b1,b1,b1,c ,c ,c ,b1,b1,b1,c ,b1",
-        "b1 ,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,b1",
-        "h13"
+        "h13,00,00,00,00,00,00,00,00,00,00,00,000",
+        "v11,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,v11",
+        "000,c ,v3,h2,00,c ,c ,c ,h2,00,v3,c ,000",
+        "000,c ,00,c ,c ,c ,c ,c ,c ,c ,00,c ,000",
+        "000,c ,00,c ,c ,c ,c ,c ,c ,c ,00,c ,000",
+        "000,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,000",
+        "000,c ,c ,c ,c ,c ,p ,c ,c ,c ,c ,c ,000",
+        "000,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,000",
+        "000,c ,v3,c ,c ,c ,c ,c ,c ,c ,v3,c ,000",
+        "000,c ,00,c ,c ,c ,c ,c ,c ,c ,00,c ,000",
+        "000,c ,00,h2,00,c ,c ,c ,h2,00,00,c ,000",
+        "000,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,000",
+        "h13,00,00,00,00,00,00,00,00,00,00,00,000"
+      ],
+      // [
+      //   "h15,   ,  ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,   ",
+      //   "v13,c  ,c ,c  ,c ,c ,c ,g ,c ,c ,c ,c ,c ,c ,v13",
+      //   "000,c ,v11,c ,c  ,  ,h3,00,00,  ,c ,c ,v11,c ,000",
+      //   "000,c ,000,h1,c ,c ,c ,h1,c ,c ,c ,h1,000,c ,000",
+      //   "000,c ,000,c ,c ,v3,c ,  ,c ,v3,c ,c ,000,c ,000",
+      //   "000,c ,000,c ,h1,00,c ,h1,c ,00,h1,c ,000,c ,000",
+      //   "000,c ,000,c ,c ,00,c ,c ,c ,00,c ,c ,000,c ,000",
+      //   "000,g ,000,h1,c ,c ,c ,p ,c ,c ,c ,h1,000,g ,000",
+      //   "000,c ,000,c ,c ,v3,c ,c ,c ,v3,c ,c ,000,c ,000",
+      //   "000,c ,000,c ,h1,00,c ,h1,c ,00,h1,c ,000,c ,000",
+      //   "000,c ,000,c ,c ,00,c ,  ,c ,00,c ,c ,000,c ,000",
+      //   "000,c ,000,h1,c ,c ,c ,h1,c ,c ,c ,h1,000,c ,000",
+      //   "000,c ,000,c ,c ,  ,h3,00,00,  ,c ,c ,000,c ,000",
+      //   "000,c ,c  ,c ,c ,c ,c ,g ,c ,c ,c ,c ,c  ,c ,000",
+      //   "h15,  ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,   ,  ,   "
+      // ],
+      [
+        "h15,00,000,00,00,00,00,00,00,00,00,00,00,00,00 ",
+        "v13,  ,c  ,c ,c ,c ,c ,g ,c ,c ,c ,c ,c ,c ,v13",
+        "000,  ,v11,c ,c ,  ,h3,00,00,  ,c ,c ,v11,c ,000",
+        "000,  ,000,h1,c ,c ,c ,h1,c ,c ,c ,h1,000,c ,000",
+        "000,  ,000,c ,c ,v3,c ,  ,c ,v3,c ,c ,000,c ,000",
+        "000,  ,000,c ,h1,00,c ,h1,c ,00,h1,c ,000,c ,000",
+        "000,  ,000,c ,c ,00,c ,c ,c ,00,c ,c ,000,c ,000",
+        "000,g ,000,h1,c ,c ,c ,p ,c ,c ,c ,h1,000,g ,000",
+        "000,  ,000,c ,c ,v3,c ,c ,c ,v3,c ,c ,000,c ,000",
+        "000,  ,000,c ,h1,00,c ,h1,c ,00,h1,c ,000,c ,000",
+        "000,  ,000,c ,c ,00,c ,  ,c ,00,c ,c ,000,c ,000",
+        "000,  ,000,h1,c ,c ,c ,h1,c ,c ,c ,h1,000,c ,000",
+        "000,  ,000,c ,c ,  ,h3,00,00,  ,c ,c ,000,c ,000",
+        "000,  ,   ,c ,c ,c ,c ,g ,c ,c ,c ,c ,c  ,c ,000",
+        "h15,00,000,00,00,00,00,00,00,00,00,00,000,00,000"
       ],
       [
-        "h15,   ,  ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,   ",
-        "v13,c  ,c ,c  ,c ,c ,c ,g ,c ,c ,c ,c ,c ,c ,v13",
-        "000,c ,v11,c ,c  ,  ,h3,00,00,  ,c ,c ,v11,c ,000",
-        "000,c ,000,h1,c ,c ,c ,h1,c ,c ,c ,h1,000,c ,000",
-        "000,c ,000,c ,c ,v3,c ,  ,c ,v3,c ,c ,000,c ,000",
-        "000,c ,000,c ,h1,00,c ,h1,c ,00,h1,c ,000,c ,000",
-        "000,c ,000,c ,c ,00,c ,c ,c ,00,c ,c ,000,c ,000",
-        "000,g ,000,h1,c ,c ,c ,p ,c ,c ,c ,h1,000,g ,000",
-        "000,c ,000,c ,c ,v3,c ,c ,c ,v3,c ,c ,000,c ,000",
-        "000,c ,000,c ,h1,00,c ,h1,c ,00,h1,c ,000,c ,000",
-        "000,c ,000,c ,c ,00,c ,  ,c ,00,c ,c ,000,c ,000",
-        "000,c ,000,h1,c ,c ,c ,h1,c ,c ,c ,h1,000,c ,000",
-        "000,c ,000,c ,c ,  ,h3,00,00,  ,c ,c ,000,c ,000",
-        "000,c ,c  ,c ,c ,c ,c ,g ,c ,c ,c ,c ,c  ,c ,000",
-        "h15,  ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,   ,  ,   "
+        "h18,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000",
+        "v13,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,v13",
+        "000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,v2,  ,  ,000",
+        "000,  ,  ,  ,v1,  ,  ,  ,  ,  ,  ,  ,  ,00,  ,  ,000",
+        "000,  ,  ,  ,  ,v1,  ,  ,  ,  ,  ,  ,h3,00,00,  ,000",
+        "000,  ,g ,  ,  ,  ,v5,  ,  ,  ,  ,  ,v5,  ,  ,  ,000",
+        "000,  ,v1,  ,  ,  ,00,g ,v3,  ,  ,  ,00,  ,  ,  ,000",
+        "000,  ,  ,h7,00,00,00,00,00,00,  ,p ,00,g ,v1,  ,000",
+        "000,  ,v1,  ,  ,  ,00,g ,00,  ,  ,  ,00,  ,  ,  ,000",
+        "000,  ,g ,  ,  ,  ,00,  ,  ,  ,  ,  ,00,  ,  ,  ,000",
+        "000,  ,  ,  ,  ,v1,  ,  ,  ,  ,  ,  ,h3,00,00,  ,000",
+        "000,  ,  ,  ,v1,  ,  ,  ,  ,  ,  ,  ,  ,v2,  ,  ,000",
+        "000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,00,  ,  ,000",
+        "000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000",
+        "h18,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000"
+      ],
+      [
+        "h17,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000",
+        "v15,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,v15",
+        "000,  ,g ,v1,  ,v3,  ,h3,00,00,  ,v3,  ,v2,g ,  ,000",
+        "000,  ,h2,00,  ,00,  ,  ,  ,  ,  ,00,  ,00,h1,  ,000",
+        "000,  ,  ,  ,  ,00,  ,  ,  ,  ,  ,00,  ,  ,  ,  ,000",
+        "000,  ,h4,00,00,00,  ,v2,  ,v2,  ,h4,00,00,00,  ,000",
+        "000,  ,  ,  ,  ,  ,  ,00,  ,00,  ,  ,  ,  ,  ,  ,000",
+        "000,  ,v3,  ,  ,h3,00,00,  ,h3,00,00,  ,  ,v3,  ,000",
+        "000,  ,00,  ,  ,  ,  ,  ,p ,  ,  ,  ,  ,  ,00,  ,000",
+        "000,  ,00,  ,  ,h3,00,00,  ,h3,00,00,  ,  ,00,  ,000",
+        "000,  ,  ,  ,  ,  ,  ,v2,  ,v2,  ,  ,  ,  ,  ,  ,000",
+        "000,  ,h4,00,00,00,  ,00,  ,00,  ,h4,00,00,00,  ,000",
+        "000,  ,  ,  ,  ,v3,  ,  ,  ,  ,  ,v3,  ,  ,  ,  ,000",
+        "000,  ,h2,00,  ,00,  ,  ,  ,  ,  ,00,  ,h2,00,  ,000",
+        "000,  ,g ,v1,  ,00,  ,h3,00,00,  ,00,  ,v1,g ,  ,000",
+        "000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000",
+        "h17,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000"
+      ],
+      [
+        "h21,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000",
+        "v11,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,v11",
+        "000,  ,v8,  ,  ,  ,  ,g ,h2,00,  ,  ,h3,00,00,  ,v8,h2,00,  ,g ,000",
+        "000,  ,00,  ,  ,  ,  ,v6,NN,NN,v6,  ,  ,v7,  ,  ,00,NN,NN,v2,  ,000",
+        "000,  ,00,  ,  ,  ,  ,00,NN,NN,00,  ,  ,00,  ,  ,00,NN,NN,00,  ,000",
+        "000,  ,00,  ,  ,  ,  ,00,NN,NN,00,  ,  ,00,  ,  ,00,h2,00,  ,  ,000",
+        "000,  ,00,  ,  ,  ,  ,00,NN,NN,00,p ,  ,00,  ,  ,00,v1,  ,  ,  ,000",
+        "000,  ,00,  ,g ,  ,  ,00,NN,NN,00,  ,  ,00,  ,  ,00,  ,v1,  ,  ,000",
+        "000,  ,00,  ,  ,  ,  ,00,NN,NN,00,  ,  ,00,  ,  ,00,  ,  ,v2,  ,000",
+        "000,  ,00,h3,00,00,  ,  ,h2,00,  ,  ,  ,00,  ,  ,00,g ,  ,00,  ,000",
+        "000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000",
+        "h21,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000"
+      ],
+      [
+        "h17,00,00,000,00,00,00,00,00,00,00,00,00,00,00,00,00,000",
+        "v13,p ,  ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,v13",
+        "000,  ,  ,h4 ,00,00,00,  ,  ,h4,00,00,00,  ,  ,  ,  ,000",
+        "000,  ,h2,000,  ,  ,  ,  ,  ,  ,  ,  ,h2,00,  ,  ,  ,000",
+        "000,  ,v2,   ,  ,h6,00,00,00,00,00,  ,  ,v2,  ,  ,  ,000",
+        "000,  ,00,   ,h2,00,  ,  ,  ,  ,  ,  ,  ,00,  ,  ,  ,000",
+        "000,  ,  ,   ,v1,  ,  ,g ,g ,  ,  ,  ,  ,  ,  ,  ,  ,000",
+        "000,  ,  ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000",
+        "000,  ,v2,   ,  ,  ,  ,g ,g ,  ,  ,  ,  ,v2,  ,  ,  ,000",
+        "000,  ,00,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,00,  ,v3,  ,000",
+        "000,  ,h2,000,  ,  ,  ,  ,  ,  ,  ,  ,h2,00,  ,00,  ,000",
+        "000,  ,  ,h4 ,00,00,00,  ,  ,h4,00,00,00,  ,  ,00,  ,000",
+        "000,  ,  ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,h2,00,  ,000",
+        "000,  ,  ,h12,00,00,00,00,00,00,00,00,00,00,  ,  ,  ,000",
+        "000,  ,  ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000",
+        "h17,00,00,000,00,00,00,00,00,00,00,00,00,00,00,00,00,000"
+      ],
+      [
+        "h19,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000",
+        "v13,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,v13",
+        "000,  ,  ,v3,  ,  ,  ,v3,  ,  ,  ,  ,  ,  ,v3,  ,v2,v2,  ,v3,  ,000",
+        "000,  ,  ,00,  ,v2,  ,00,  ,  ,  ,  ,v1,  ,00,  ,  ,  ,  ,00,  ,000",
+        "000,  ,  ,00,  ,00,  ,00,  ,  ,  ,v1,  ,  ,00,  ,  ,  ,  ,00,  ,000",
+        "000,  ,  ,h5,00,00,00,00,  ,  ,  ,  ,  ,  ,h6,00,00,00,00,00,  ,000",
+        "000,  ,  ,  ,v6,  ,v6,  ,  ,  ,  ,  ,v1,  ,  ,v6,  ,  ,v6,  ,  ,000",
+        "000,  ,  ,  ,00,  ,00,  ,  ,  ,  ,v1,  ,  ,  ,00,  ,  ,00,  ,  ,000",
+        "000,  ,  ,  ,00,  ,00,  ,  ,  ,v1,  ,  ,  ,  ,00,g ,  ,00,  ,  ,000",
+        "000,  ,  ,  ,00,  ,00,p ,  ,  ,  ,  ,  ,  ,  ,00,  ,  ,00,  ,  ,000",
+        "000,  ,  ,  ,00,  ,00,  ,  ,  ,  ,  ,  ,  ,  ,00,  ,  ,00,  ,  ,000",
+        "000,  ,  ,  ,00,  ,00,  ,  ,  ,  ,  ,  ,  ,  ,00,  ,  ,00,  ,  ,000",
+        "000,  ,  ,h2,00,  ,h2,00,  ,  ,  ,  ,  ,  ,  ,00,  ,  ,00,  ,  ,000",
+        "000,  ,h2,00,  ,  ,  ,h2,00,  ,  ,  ,  ,  ,h2,00,  ,  ,h2,00,  ,000",
+        "000,  ,v1,  ,  ,g ,  ,  ,v1,  ,  ,  ,  ,  ,v1,  ,  ,  ,  ,v1,  ,000",
+        "000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000",
+        "h19,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000"
       ]
+      // [
+      //    "h17,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000",
+      //    'v13,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,v13',
+      //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
+      //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
+      //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
+      //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
+      //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
+      //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,g ,000',
+      //    '000,  ,  ,  ,  ,  ,p ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
+      //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
+      //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
+      //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
+      //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
+      //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
+      //    "h17,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000",
+      // ],
     ];
     var keys = [];
     var player = [];
     var ghosts = [];
+    var images = [
+      shireBg,
+      minas_morgul,
+      treasure_erebor,
+      mordor,
+      amon_hen,
+      rivendell,
+      argonath,
+      bag_end,
+      moria,
+      beacons
+    ];
     var chars = {
       legolas: loadImage(
         "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FLegolas.svg?v=1634360487219"
@@ -119,36 +292,92 @@ var fadeBg = get();
         "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FOrc.svg?v=1634488816180"
       ),
       ring: loadImage(
-        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FOne%20Ring.png?v=1634489402613"
+        // "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FOne%20Ring.png?v=1634489402613"
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FOne%20Ring.svg?v=1634693493863"
+        // 'https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fimage2vector.svg?v=1634876413096'
       ),
       barrel: loadImage(
         "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FBarrel.png?v=1634359742592"
       ),
       sam: loadImage(
-        'https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FSam.svg?v=1634691131978'
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FSam.svg?v=1634691131978"
       ),
-      elrond:loadImage(
-        'https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Felrond.svg?v=1634691346343'
+      elrond: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Felrond.svg?v=1634691346343"
       ),
-      bard:loadImage(
-        'https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fbard.svg?v=1634691631491'
+      bard: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fbard.svg?v=1634691631491"
       ),
-      bofur:loadImage(
-        'https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fbofur.svg?v=1634691962334'
+      bofur: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fbofur.svg?v=1634691962334"
       ),
+      rock: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Frock4.svg?v=1634763090870"
+      )
     };
+    var grayscale = {
+      legolas: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Flegolas_grayscale.svg?v=1634955792998"
+      ),
+      tauriel: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Ftauriel_grayscale.svg?v=1634956119220"
+      ),
+      frodo: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FFrodo.svg?v=1634488130019"
+      ),
+      gandalf: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fgandalf_grayscale.svg?v=1634955794803"
+      ),
+      orc: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Forc_grayscale.svg?v=1634955779889"
+      ),
+      ring: loadImage(
+        // "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FOne%20Ring.png?v=1634489402613"
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FOne%20Ring.svg?v=1634693493863"
+        // 'https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fimage2vector.svg?v=1634876413096'
+      ),
+      barrel: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FBarrel.png?v=1634359742592"
+      ),
+      sam: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fsam_grayscale.svg?v=1634929696735"
+      ),
+      elrond: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Felrond_grayscale.svg?v=1634955797952"
+      ),
+      bard: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fbard_grayscale.png.svg?v=1634955806900"
+      ),
+      bofur: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Fbofur_grayscale.svg?v=1634878193422"
+      ),
+      rock: loadImage(
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Frock4.svg?v=1634763090870"
+      )
+    };
+    var imgs = {};
+    for (var i = 0; i < Object.keys(chars).length; i++) {
+      imgs[Object.keys(chars)[i]] = false;
+    }
 
+    // chars.rock = loadImage('https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Frock2.svg?v=1634761814043')
+    // chars.rock = loadImage('https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Frock3.svg?v=1634762036767')
     /** -- vars -- **/
     var bSize = ~~(map(~~36.36363636363637, 0, 400, 0, width) * 1);
-    var character = "gandalf";
-    var lvl = 1;
+    var character = "sam";
+    // var lvl = (gameBoard.length-1)*0;
+    var lvl = 0;
     var scene = "main";
     var drawOnce = 0;
     var letter = 0;
     var currentCoins = 0;
-    var collectedCoins = 0;
-    var gameBoardSplit = Array.from(Array(2), () => new Array(4));
+    var collectedCoins = localStorage.getItem("coins") || 0;
+    var gameBoardSplit = Array.from(Array(300), () => new Array(12));
     var scroll_y = 0;
+    var purchasing = false;
+    var equipping = false;
+    // var inputBox = document.getElementById("input-container");
+    // var root = document.querySelector(":root");
     /** -- Classes -- **/
     function collide(p, b) {
       return (
@@ -157,10 +386,18 @@ var fadeBg = get();
       // return a.x - b.x < b.w && b.x - a.x < a.w &&
       //   a.y - b.y < b.h && b.y - a.y < a.h;
     }
+    var str = "main,1000,lvl";
+    var encrypted = CryptoJS.AES.encrypt(str, "1234");
+    var decrypted = CryptoJS.AES.decrypt(
+      "U2FsdGVkX18pMMRGcqgjFimYqZGMdBNuw4xNzE9IwvY=",
+      "1234"
+    );
+    println(encrypted);
+    println(decrypted.toString(CryptoJS.enc.Utf8));
 
     function displayStats(stat) {
       fill(255);
-      stroke(0)
+      stroke(0);
       textSize(map(20, 0, 474, 0, canvasSize));
       rect(
         map(68, 0, 474, 0, canvasSize),
@@ -183,20 +420,35 @@ var fadeBg = get();
       text(stat, map(91, 0, 474, 0, canvasSize), map(8, 0, 474, 0, canvasSize));
       popStyle();
     }
+
     var Block = (function() {
       Block = function(self) {
         this.x = self.x;
         this.y = self.y;
         this.w = ~~self.w;
         this.h = ~~self.h;
+        this.dir = self.dir;
       };
       Block.prototype.display = function() {
         this.prevX = this.x;
         this.prevY = this.y;
-        strokeWeight(1);
-        stroke(0);
-        fill(0, 200, 255);
-        rect(this.x, this.y, this.w, this.h);
+        // strokeWeight(1);
+        // stroke(0);
+        // fill(0, 200, 255);
+        // rect(this.x, this.y, this.w, this.h);
+        image(chars.rock, this.x, this.y, this.w, this.h);
+        //         if (this.dir === "v") {
+        //           for (var i = 0; i < this.h; i += bSize) {
+        //             image(chars.rock, this.x, this.y + i, bSize, bSize);
+        //           }
+        //         }
+        //         // image(this.img,this.x,this.y)
+
+        //         if (this.dir === "h") {
+        //           for (var i = 0; i < this.w; i += bSize) {
+        //             image(chars.rock, this.x + i, this.y, bSize, bSize);
+        //           }
+        //         }
       };
 
       return Block;
@@ -229,6 +481,8 @@ var fadeBg = get();
         this.acl = new PVector(0, 0);
         this.speed = 5;
         this.img = loadImage();
+        this.aclx = 0;
+        this.acly = 0;
       };
       Player.prototype.display = function() {
         this.charW = map(this.w, 0, 400, 0, width);
@@ -237,7 +491,7 @@ var fadeBg = get();
         fill(255, 0);
         stroke(0);
 
-        rect(this.x, this.y, this.w, this.h);
+        // rect(this.x, this.y, this.w, this.h);
         // tint(255,0,0)
 
         image(
@@ -283,6 +537,7 @@ var fadeBg = get();
           this.acl.x = 0;
           this.acl.y = this.speed;
         }
+
         this.y += this.acl.y;
         this.UDcollide();
 
@@ -365,7 +620,9 @@ var fadeBg = get();
       };
       Ghost.prototype.checkSides = function() {
         this.sides.splice(0, this.sides.length);
-        this.pos = new PVector(~~(this.x / bSize), ~~(this.y / bSize));
+
+        this.pos = new PVector(~~(this.y / bSize), ~~(this.x / bSize));
+
         if (this.pos.x - 1 > 0) {
           if (
             this.id[this.pos.x - 1][this.pos.y][0] === "h" ||
@@ -373,7 +630,7 @@ var fadeBg = get();
             this.id[this.pos.x - 1][this.pos.y][0] === "0"
           ) {
           } else {
-            this.sides.push("left");
+            this.sides.push("up");
           }
         }
         if (this.pos.x + 1 < this.id.length) {
@@ -383,7 +640,7 @@ var fadeBg = get();
             this.id[this.pos.x + 1][this.pos.y][0] === "0"
           ) {
           } else {
-            this.sides.push("right");
+            this.sides.push("down");
           }
         }
         if (this.pos.y - 1 > 0) {
@@ -393,7 +650,7 @@ var fadeBg = get();
             this.id[this.pos.x][this.pos.y - 1][0] === "0"
           ) {
           } else {
-            this.sides.push("up");
+            this.sides.push("left");
           }
         }
         if (this.pos.y + 1 < this.id[this.pos.x].length) {
@@ -403,14 +660,14 @@ var fadeBg = get();
             this.id[this.pos.x][this.pos.y + 1][0] === "0"
           ) {
           } else {
-            this.sides.push("down");
+            this.sides.push("right");
           }
         }
-        for (var i = this.sides.length - 1; i >= 0; i--) {
-          if (this.sides[i] === this.prevDir) {
-            this.sides.splice(i, 1);
-          }
-        }
+        // for (var i = this.sides.length - 1; i >= 0; i--) {
+        //   if (this.sides[i] === this.prevDir) {
+        //     this.sides.splice(i, 1);
+        //   }
+        // }
       };
       Ghost.prototype.checkAround = function(a, b, w, h) {
         return (
@@ -501,10 +758,10 @@ var fadeBg = get();
         this.UDcollide();
       };
       Ghost.prototype.display = function() {
-        fill(255, 0, 0);
-        rect(this.X, this.Y, this.W, this.H);
-        fill(0, 255, 0);
-        rect(this.x, this.y, this.w, this.h);
+        // fill(255, 0, 0);
+        // rect(this.X, this.Y, this.W, this.H);
+        // fill(0, 255, 0);
+        // rect(this.x, this.y, this.w, this.h);
         image(chars["orc"], this.x, this.y, this.w, this.h);
       };
       return Ghost;
@@ -760,7 +1017,7 @@ var fadeBg = get();
           this.mappedSelf[this.keys[i]] = map(
             self[this.keys[i]],
             0,
-            583,
+            self.map ? self.map : 583,
             0,
             canvasSize
           );
@@ -772,6 +1029,7 @@ var fadeBg = get();
             this[this.keys[i]] = self[this.keys[i]];
           }
         }
+        this.cost = Number(this.cost);
       }
       display() {
         fill(this.color.r, this.color.g, this.color.b);
@@ -784,12 +1042,26 @@ var fadeBg = get();
           var tHeight = textDescent(this.text) + textAscent(this.text);
           text(this.text, this.x + this.w / 2, this.y + this.h / 2);
         } else {
-          image(chars["barrel"], this.x, this.y, this.w, this.h);
-          image(chars[this.char],this.x+this.w/3,this.y+this.h/2.5,this.w/3,this.h/3)
-          pushMatrix();
-          translate(this.x-this.w/1.8,this.y+this.h/1.4);
-          displayStats(this.cost);
-          popMatrix();
+          if (scene === "store") {
+            image(chars["barrel"], this.x, this.y, this.w, this.h);
+            image(
+              chars[this.char],
+              this.x + this.w / 3,
+              this.y + this.h / 2.5,
+              this.w / 3,
+              this.h / 3
+            );
+            pushMatrix();
+            translate(this.x - this.w / 1.8, this.y + this.h / 1.4);
+            displayStats(this.cost);
+            popMatrix();
+          } else {
+            if (imgs[this.char]) {
+              image(chars[this.char], this.x, this.y, this.w, this.h);
+            } else {
+              image(grayscale[this.char], this.x, this.y, this.w, this.h);
+            }
+          }
         }
       }
       mouseenter() {}
@@ -802,14 +1074,92 @@ var fadeBg = get();
         );
       }
       click() {
-        if (this.isin()) {
-          this.cmd();
-          // scene = this.cmd;
-          println(scene);
+        if (this.isin() && !loading) {
+          if (purchasing) {
+            if (this.purchase) {
+              this.cmd(this);
+              // scene = this.cmd;
+              clicked = 10;
+            } else {
+              return;
+            }
+          } else {
+            this.cmd(this);
+            clicked = 10;
+          }
         }
       }
     }
     var btns = [
+      //  -- PLAY SCREEN -- //
+      // new Button({
+      //   x: 10,
+      //   y: 512 - 60 - 10,
+      //   w: 60,
+      //   h: 60,
+      //   r: 5,
+      //   color: { r: 34, g: 139, b: 34 },
+      //   text: "◀",
+      //   textS: 30,
+      //   textColor: { r: 255, g: 255, b: 0 },
+      //   scene: "play",
+      //   map: "512",
+      //   cmd: function() {
+      //     player[0].acl.x = -player[0].speed;
+      //     player[0].acl.y = 0;
+      //   }
+      // }), // LEFT
+      // new Button({
+      //   x: 10 + 60 + 20,
+      //   y: 512 - 60 - 10,
+      //   w: 60,
+      //   h: 60,
+      //   r: 5,
+      //   color: { r: 34, g: 139, b: 34 },
+      //   text: "▶",
+      //   textS: 30,
+      //   textColor: { r: 255, g: 255, b: 0 },
+      //   scene: "play",
+      //   map: "512",
+      //   cmd: function() {
+      //     player[0].acl.x = player[0].speed;
+      //     player[0].acl.y = 0;
+      //   }
+      // }), // RIGHT
+      // new Button({
+      //   x: 512 - 60 - 10,
+      //   y: 512 - 120 - 30,
+      //   w: 60,
+      //   h: 60,
+      //   r: 5,
+      //   color: { r: 34, g: 139, b: 34 },
+      //   text: "🔼",
+      //   textS: 40,
+      //   textColor: { r: 255, g: 255, b: 0 },
+      //   scene: "play",
+      //   map: "512",
+      //   cmd: function() {
+      //     player[0].acl.y = -player[0].speed;
+      //     player[0].acl.x = 0;
+      //   }
+      // }), // UP
+      // new Button({
+      //   x: 512 - 60 - 10,
+      //   y: 512 - 60 - 10,
+      //   w: 60,
+      //   h: 60,
+      //   r: 5,
+      //   color: { r: 34, g: 139, b: 34 },
+      //   text: "🔽",
+      //   textS: 40,
+      //   textColor: { r: 255, g: 255, b: 0 },
+      //   scene: "play",
+      //   map: "512",
+      //   cmd: function() {
+      //     player[0].acl.y = player[0].speed;
+      //     player[0].acl.x = 0;
+      //   }
+      // }), // DOWN
       //-- MAIN SCREEN --//
       new Button({
         x: 583 / 2 - 60,
@@ -890,7 +1240,8 @@ var fadeBg = get();
         textColor: { r: 255, g: 255, b: 0 },
         scene: "main",
         cmd: function() {
-          // download('I JUST CREATED A FILE DOWNLOADER IN JAVASCRIPT',"filename.csv", "text/csv")
+          localStorage.setItem("coins", collectedCoins);
+          println(`Your save code: ${CryptoJS.AES.encrypt(str, "1234")}`);
         }
       }), //SAVE
       new Button({
@@ -906,6 +1257,21 @@ var fadeBg = get();
         scene: "main",
         cmd: function() {
           ///////////
+          // println('hi')
+          // loading = true;
+          // root.style.setProperty(
+          //   "--fontSize",
+          //   `${map(15, 0, 512, 0, canvasSize)}px`
+          // );
+          // root.style.setProperty(
+          //   '--inputDisp',
+          //   'block'
+          // );
+          // inputBox.style.display = 'grid';
+          // inputBox.style.height = `${map(25, 0, 512, 0, canvasSize)}px`;
+          // inputBox.style.width = `${map(200, 0, 512, 0, canvasSize)}px`;
+          // inputBox.style.marginLeft = `${map(150, 0, 512, 0, canvasSize)}px`;
+          // inputBox.style.marginTop = `${map(240, 0, 512, 0, canvasSize)}px`;
           /////////
         }
       }), //LOAD
@@ -925,6 +1291,7 @@ var fadeBg = get();
         }
       }), //SETTINGS
       //-- CHARACTERS -- //
+
       new Button({
         x: 100,
         y: 50,
@@ -937,12 +1304,14 @@ var fadeBg = get();
         textColor: { r: 255, g: 255, b: 0 },
         scene: "store",
         char: "legolas",
-        cost: '1000',
-        scrollable:'true',
+        cost: "1000",
+        scrollable: "true",
         cmd: function() {
-          character = "legolas";
+          if (collectedCoins >= this.cost) {
+            purchasing = this.char;
+          }
         }
-      }), //LEGOLAS BARREL
+      }), //TAURIEL BARREL
       new Button({
         x: 250,
         y: 50,
@@ -955,10 +1324,12 @@ var fadeBg = get();
         textColor: { r: 255, g: 255, b: 0 },
         scene: "store",
         char: "tauriel",
-        cost:'200',
-        scrollable:'true',
+        cost: "200",
+        scrollable: "true",
         cmd: function() {
-          character = "tauriel";
+          if (collectedCoins >= this.cost) {
+            purchasing = this.char;
+          }
         }
       }), //TAURIEL BARREL
       new Button({
@@ -973,10 +1344,12 @@ var fadeBg = get();
         textColor: { r: 255, g: 255, b: 0 },
         scene: "store",
         char: "gandalf",
-        cost:'500',
-        scrollable:'true',
+        cost: "500",
+        scrollable: "true",
         cmd: function() {
-          character = "tauriel";
+          if (collectedCoins >= this.cost) {
+            purchasing = this.char;
+          }
         }
       }), //GANDALF BARREL
       new Button({
@@ -991,12 +1364,14 @@ var fadeBg = get();
         textColor: { r: 255, g: 255, b: 0 },
         scene: "store",
         char: "sam",
-        cost:'100',
-        scrollable:'true',
+        cost: "500",
+        scrollable: "true",
         cmd: function() {
-          character = "tauriel";
+          if (collectedCoins >= this.cost) {
+            purchasing = this.char;
+          }
         }
-      }), //SAM BARREL
+      }), //GANDALF BARREL
       new Button({
         x: 250,
         y: 220,
@@ -1009,11 +1384,13 @@ var fadeBg = get();
         textColor: { r: 255, g: 255, b: 0 },
         scene: "store",
         char: "elrond",
-        cost:'2000',
-        scrollable:'true',
+        cost: "2000",
+        scrollable: "true",
 
         cmd: function() {
-          character = "tauriel";
+          if (collectedCoins >= this.cost) {
+            purchasing = this.char;
+          }
         }
       }), // ELROND BARREL
       new Button({
@@ -1028,11 +1405,13 @@ var fadeBg = get();
         textColor: { r: 255, g: 255, b: 0 },
         scene: "store",
         char: "bard",
-        cost:'1200',
-        scrollable:'true',
+        cost: "1200",
+        scrollable: "true",
 
         cmd: function() {
-          character = "tauriel";
+          if (collectedCoins >= this.cost) {
+            purchasing = this.char;
+          }
         }
       }), //BARD BARREL
       new Button({
@@ -1047,20 +1426,355 @@ var fadeBg = get();
         textColor: { r: 255, g: 255, b: 0 },
         scene: "store",
         char: "bofur",
-        cost:'800',
-        scrollable:'true',
-       
+        cost: "800",
+        scrollable: "true",
+
         cmd: function() {
-          character = "tauriel";
+          if (collectedCoins >= this.cost) {
+            purchasing = this.char;
+          }
         }
       }),
 
+      // -- YES _ NO -- //
+      new Button({
+        x: 682 / 2 + 40,
+        y: 420,
+        w: 120,
+        h: 60,
+        r: 5,
+        color: { r: 34, g: 139, b: 34 },
+        text: "NO",
+        textS: 30,
+        textColor: { r: 255, g: 255, b: 0 },
+        scene: "store",
+        char: "",
+        cost: "1200",
+        scrollable: "true",
+        purchase: true,
+        map: 682,
+        cmd: function() {
+          purchasing = false;
+        }
+      }), //NO BARREL
+      new Button({
+        x: 682 / 2 - 120 - 40,
+        y: 420,
+        w: 120,
+        h: 60,
+        r: 5,
+        color: { r: 34, g: 139, b: 34 },
+        text: "YES",
+        textS: 30,
+        textColor: { r: 255, g: 255, b: 0 },
+        scene: "store",
+        char: "",
+        cost: "800",
+        scrollable: "true",
+        purchase: true,
+        map: 682,
+        cmd: function() {
+          for (var i = 0; i < btns.length; i++) {
+            // println(btns[i].char)
+            // println(purchasing)
+            if (btns[i].scene === "store" && btns[i].char === purchasing) {
+              collectedCoins -= btns[i].cost;
+            } else {
+              continue;
+            }
+          }
+
+          imgs[purchasing] = true;
+          purchasing = false;
+        }
+      }), //YES BUTTON
+
+      new Button({
+        x: 682 / 2 + 40,
+        y: 420,
+        w: 120,
+        h: 60,
+        r: 5,
+        color: { r: 34, g: 139, b: 34 },
+        text: "NO",
+        textS: 30,
+        textColor: { r: 255, g: 255, b: 0 },
+        scene: "equip",
+        char: "",
+        cost: "1200",
+        scrollable: "true",
+        purchase: true,
+        map: 682,
+        cmd: function() {
+          equipping = false;
+        }
+      }), //NO BARREL
+      new Button({
+        x: 682 / 2 - 120 - 40,
+        y: 420,
+        w: 120,
+        h: 60,
+        r: 5,
+        color: { r: 34, g: 139, b: 34 },
+        text: "YES",
+        textS: 30,
+        textColor: { r: 255, g: 255, b: 0 },
+        scene: "equip",
+        char: "",
+        cost: "800",
+        scrollable: "true",
+        purchase: true,
+        map: 682,
+        cmd: function() {
+          character = equipping;
+          equipping = false;
+        }
+      }), //YES BUTTON
+      // -- GRAYSCALE -- //
+      new Button({
+        x: 100,
+        y: 50,
+        w: 120,
+        h: 140,
+        r: 5,
+        color: { r: 34, g: 139, b: 34 },
+        text: "",
+        textS: 16,
+        textColor: { r: 255, g: 255, b: 0 },
+        scene: "equip",
+        char: "legolas",
+        cost: "1000",
+        scrollable: "true",
+        cmd: function() {
+          if (imgs[this.char] && !equipping) {
+            equipping = this.char;
+          }
+        }
+      }), //TAURIEL BARREL
+      new Button({
+        x: 250,
+        y: 50,
+        w: 120,
+        h: 140,
+        r: 5,
+        color: { r: 34, g: 139, b: 34 },
+        text: "",
+        textS: 16,
+        textColor: { r: 255, g: 255, b: 0 },
+        scene: "equip",
+        char: "tauriel",
+        cost: "200",
+        scrollable: "true",
+        cmd: function() {
+          if (imgs[this.char] && !equipping) {
+            equipping = this.char;
+          }
+        }
+      }), //TAURIEL BARREL
+      new Button({
+        x: 400,
+        y: 50,
+        w: 120,
+        h: 140,
+        r: 5,
+        color: { r: 34, g: 139, b: 34 },
+        text: "",
+        textS: 16,
+        textColor: { r: 255, g: 255, b: 0 },
+        scene: "equip",
+        char: "gandalf",
+        cost: "500",
+        scrollable: "true",
+        cmd: function() {
+          if (imgs[this.char] && !equipping) {
+            equipping = this.char;
+          }
+        }
+      }), //GANDALF BARREL
+      new Button({
+        x: 100,
+        y: 220,
+        w: 120,
+        h: 140,
+        r: 5,
+        color: { r: 34, g: 139, b: 34 },
+        text: "",
+        textS: 16,
+        textColor: { r: 255, g: 255, b: 0 },
+        scene: "equip",
+        char: "sam",
+        cost: "500",
+        scrollable: "true",
+        cmd: function() {
+          if (imgs[this.char] && !equipping) {
+            equipping = this.char;
+          }
+        }
+      }), //GANDALF BARREL
+      new Button({
+        x: 250,
+        y: 220,
+        w: 120,
+        h: 140,
+        r: 5,
+        color: { r: 34, g: 139, b: 34 },
+        text: "",
+        textS: 16,
+        textColor: { r: 255, g: 255, b: 0 },
+        scene: "equip",
+        char: "elrond",
+        cost: "2000",
+        scrollable: "true",
+
+        cmd: function() {
+          if (imgs[this.char] && !equipping) {
+            equipping = this.char;
+          }
+        }
+      }), // ELROND BARREL
+      new Button({
+        x: 400,
+        y: 220,
+        w: 120,
+        h: 140,
+        r: 5,
+        color: { r: 34, g: 139, b: 34 },
+        text: "",
+        textS: 16,
+        textColor: { r: 255, g: 255, b: 0 },
+        scene: "equip",
+        char: "bard",
+        cost: "1200",
+        scrollable: "true",
+
+        cmd: function() {
+          if (imgs[this.char] && !equipping) {
+            equipping = this.char;
+          }
+        }
+      }), //BARD BARREL
+      new Button({
+        x: 100,
+        y: 390,
+        w: 120,
+        h: 140,
+        r: 5,
+        color: { r: 34, g: 139, b: 34 },
+        text: "",
+        textS: 16,
+        textColor: { r: 255, g: 255, b: 0 },
+        scene: "equip",
+        char: "bofur",
+        cost: "800",
+        scrollable: "true",
+
+        cmd: function() {
+          if (imgs[this.char] && !equipping) {
+            equipping = this.char;
+          }
+        }
+      })
     ];
-    scene = "store";
+    class Controls {
+      constructor(self) {
+        this.keys = Object.keys(self);
+        this.mappedSelf = {};
+        for (var i = 0; i < this.keys.length; i++) {
+          this.mappedSelf[this.keys[i]] = map(
+            self[this.keys[i]],
+            0,
+            self.map ? self.map : 512,
+            0,
+            canvasSize
+          );
+        }
+        for (var i = 0; i < this.keys.length; i++) {
+          if (typeof self[this.keys[i]] === "number") {
+            this[this.keys[i]] = this.mappedSelf[this.keys[i]];
+          } else {
+            this[this.keys[i]] = self[this.keys[i]];
+          }
+        }
+        this.moveX = this.x;
+        this.moveY = this.y;
+        this.isClicked = false;
+        var a = { x: this.moveX, y: this.moveY, r: this.r2 };
+        var b = { x: this.x, y: this.y, r: this.r };
+      }
+      display() {
+        fill(200);
+        ellipse(this.x, this.y, this.r, this.r);
+
+        fill(100);
+        ellipse(this.moveX, this.moveY, this.r2, this.r2);
+      }
+      isin() {
+        return dist(mouseX, mouseY, this.x, this.y) < this.r;
+
+        return false;
+      }
+      circleConstrain(a, b) {
+        var dst = dist(a.x, a.y, b.x, b.y);
+        var angle = atan2(a.y - b.y, a.x - b.x);
+        if (dst > (b.r - a.r) / 2) {
+          a.x = ((b.r - a.r) / 2) * cos(angle) + b.x;
+          a.y = ((b.r - a.r) / 2) * sin(angle) + b.y;
+        }
+        return {
+          x: a.x,
+          y: a.y,
+          minA: ((b.r - a.r) / 2) * sin(0) + b.y,
+          maxA: ((b.r - a.r) / 2) * sin(360) + b.y
+        };
+      }
+      press() {
+        if (this.isClicked) {
+          this.moveX = mouseX;
+          this.moveY = mouseY;
+
+          var a = { x: this.moveX, y: this.moveY, r: this.r2 };
+          var b = { x: this.x, y: this.y, r: this.r };
+          this.constrain = this.circleConstrain(a, b);
+          println(this.constrain.minA);
+          // this.minA = this.constrain.minA;
+          // this.maxA = this.constrain.maxA;
+          this.moveX = a.x;
+          this.moveY = a.y;
+          player[0].acl.x = map(
+            this.moveX,
+            this.minA,
+            this.maxA,
+            -player[0].speed,
+            player[0].speed
+          );
+          println(player[0].acl.x);
+        } else {
+          this.moveX = this.x;
+          this.moveY = this.y;
+        }
+      }
+    }
+    var controls = new Controls({
+      // map:512,
+      x: 60,
+      y: 512 - 60,
+      r: 100,
+      r2: 30
+    });
+    // lvl = gameBoard.length-1;
+    scene = "play";
+    purchasing = "";
+    equipping = "";
+    var loading = false;
+
+    // -- GAME -- //
     var Game = (function() {
       Game = function(self) {
-        this.board = Array.from(Array(2), () => new Array(4));
+        this.board = Array.from(Array(100), () => new Array(100));
         this.eye = 0;
+        this.drawn1 = 0;
+        this.img = ~~random(images.length);
+        this.coins = 0;
       };
       Game.prototype.create = function() {
         player.splice(0, player.length);
@@ -1069,6 +1783,7 @@ var fadeBg = get();
         ghosts.splice(0, ghosts.length);
         currentCoins = 0;
         for (var i = gameBoard[lvl].length - 1; i >= 0; i--) {
+          // gameBoardSplit[lvl].push([])
           gameBoardSplit[lvl][i] = gameBoard[lvl][i].split(",");
         }
 
@@ -1088,7 +1803,8 @@ var fadeBg = get();
                     x: j * bSize,
                     y: i * bSize,
                     w: bSize * w,
-                    h: bSize
+                    h: bSize,
+                    dir: "h"
                   })
                 );
                 break;
@@ -1103,7 +1819,8 @@ var fadeBg = get();
                     x: j * bSize,
                     y: i * bSize,
                     w: bSize,
-                    h: bSize * h
+                    h: bSize * h,
+                    dir: "v"
                   })
                 );
                 break;
@@ -1112,16 +1829,16 @@ var fadeBg = get();
                   new Player({
                     x: j * bSize,
                     y: i * bSize,
-                    w: bSize / 1.3,
-                    h: bSize / 1.3
+                    w: bSize / 1.1,
+                    h: bSize / 1.1
                   })
                 );
                 break;
-              case "c":
-                coins.push(
-                  new Coin({ x: j * bSize, y: i * bSize, w: bSize, h: bSize })
-                );
-                break;
+              // case "c":
+              //   coins.push(
+              //     new Coin({ x: j * bSize, y: i * bSize, w: bSize, h: bSize })
+              //   );
+              //   break;
               case "g":
                 ghosts.push(
                   new Ghost({
@@ -1132,9 +1849,17 @@ var fadeBg = get();
                   })
                 );
                 break;
+              default:
+                if ((id[0] === " ") | (id[0] === "c")) {
+                  coins.push(
+                    new Coin({ x: j * bSize, y: i * bSize, w: bSize, h: bSize })
+                  );
+                }
+                break;
             }
           }
         }
+        this.coins = coins.length;
       };
       Game.prototype.display = function() {
         for (var i = blocks.length - 1; i >= 0; i--) {
@@ -1155,6 +1880,11 @@ var fadeBg = get();
         for (var i = player.length - 1; i >= 0; i--) {
           player[i].move();
           player[i].display();
+        }
+        if (currentCoins >= this.coins) {
+          drawOnce = 0;
+          currentCoins = 0;
+          lvl += 1;
         }
       };
       Game.prototype.trans = function() {
@@ -1178,13 +1908,16 @@ var fadeBg = get();
       };
       Game.prototype.store = function() {
         background(0);
+        image(gondor, 0, 0, canvasSize, canvasSize);
 
+        return Game.prototype;
       };
       Game.prototype.equip = function() {
         image(shireBg, 0, 0, canvasSize, canvasSize);
       };
       Game.prototype.save = function() {
         background(34, 193, 34);
+        println(`Your save code: ${CryptoJS.AES.encrypt(str, "1234")}`);
       };
       Game.prototype.settings = function() {
         image(isengardBg, 0, 0, canvasSize, canvasSize);
@@ -1203,6 +1936,92 @@ var fadeBg = get();
         textAlign(CENTER, CENTER);
         text("YOU LOSE", width / 2, map(450, 0, 569, 0, canvasSize));
       };
+      Game.prototype.purchasing = function() {
+        fill(244, 244, 255, 150);
+        rect(0, 0, width, height);
+        for (var i = btns.length - 1; i >= 0; i--) {
+          if (btns[i].purchase) {
+            if (btns[i].char) {
+              continue;
+            }
+            if (
+              btns[i].scene === scene ||
+              (btns[i].scene === "*" && scene !== "main")
+            ) {
+              btns[i].mouseenter();
+              btns[i].display();
+            }
+          }
+        }
+
+        image(
+          chars[purchasing],
+          width / 2 - map(200, 0, 640, 0, canvasSize) / 2,
+          map(70, 0, 640, 0, canvasSize),
+          map(200, 0, 640, 0, canvasSize),
+          map(200, 0, 640, 0, canvasSize)
+        );
+
+        pushStyle();
+        textSize(map(60, 0, 512, 0, canvasSize));
+        fill(0, 66, 66);
+
+        text(
+          `Purchase ${purchasing.split("")[0].toUpperCase()}${purchasing
+            .split("")
+            .splice(1, purchasing.split("").length)
+            .join("")}`,
+          map(829 / 2, 0, 829, 0, canvasSize),
+          map(250, 0, 512, 0, canvasSize)
+        );
+
+        popStyle();
+      };
+      Game.prototype.equipping = function() {
+        fill(244, 244, 255, 150);
+        rect(0, 0, width, height);
+        for (var i = btns.length - 1; i >= 0; i--) {
+          if (btns[i].purchase) {
+            if (btns[i].char) {
+              continue;
+            }
+            if (
+              btns[i].scene === scene ||
+              (btns[i].scene === "*" && scene !== "main")
+            ) {
+              btns[i].mouseenter();
+              btns[i].display();
+            }
+          }
+        }
+
+        image(
+          chars[equipping],
+          width / 2 - map(200, 0, 640, 0, canvasSize) / 2,
+          map(60, 0, 512, 0, canvasSize),
+          map(200, 0, 640, 0, canvasSize),
+          map(200, 0, 640, 0, canvasSize)
+        );
+
+        pushStyle();
+        textSize(map(60, 0, 512, 0, canvasSize));
+        fill(0, 66, 66);
+
+        text(
+          `Equip ${equipping.split("")[0].toUpperCase()}${equipping
+            .split("")
+            .splice(1, equipping.split("").length)
+            .join("")}`,
+          map(829 / 2, 0, 829, 0, canvasSize),
+          map(250, 0, 512, 0, canvasSize)
+        );
+
+        popStyle();
+      };
+      Game.prototype.load = function() {
+        fill(244, 244, 255, 150);
+        rect(0, 0, width, height);
+      };
       return Game;
     })();
 
@@ -1210,16 +2029,19 @@ var fadeBg = get();
     function createGame() {
       if (!drawOnce) {
         g.eye = 0;
+        g.img = ~~random(images.length);
         g.create();
       }
       drawOnce = 1;
       switch (scene) {
         case "play":
+          image(images[g.img], 0, 0, canvasSize, canvasSize);
           pushMatrix();
           g.trans();
           g.display();
           popMatrix();
           displayStats(currentCoins);
+          controls.display();
           break;
         case "main":
           g.mainScreen();
@@ -1238,6 +2060,9 @@ var fadeBg = get();
         case "lose":
           g.lose();
           break;
+        case "equip":
+          g.equip();
+          break;
       }
 
       if (letter < moveletter.length) {
@@ -1252,12 +2077,11 @@ var fadeBg = get();
           moveletter[i].display();
         }
       }
-      if(scene === 'store'){
-        image(fadeBg)
-        displayStats(collectedCoins)
-      }     
+
       for (var i = 0; i < btns.length; i++) {
-        
+        if (!btns[i].char) {
+          continue;
+        }
         if (
           btns[i].scene === scene ||
           (btns[i].scene === "*" && scene !== "main")
@@ -1267,9 +2091,40 @@ var fadeBg = get();
         }
       }
 
-    }
+      if (scene === "store") {
+        image(fadeBgTop);
+        image(fadeBgBtm);
+        displayStats(collectedCoins);
+      }
+      for (var i = btns.length - 1; i >= 0; i--) {
+        if (!btns[i].purchase) {
+          if (btns[i].char) {
+            continue;
+          }
+          if (
+            btns[i].scene === scene ||
+            (btns[i].scene === "*" && scene !== "main")
+          ) {
+            btns[i].mouseenter();
+            btns[i].display();
+          }
+        }
+      }
 
+      if (purchasing) {
+        g.purchasing();
+      }
+      if (equipping) {
+        g.equipping();
+      }
+      if (loading) {
+        g.load();
+      }
+    }
+    var clicked = 0;
     draw = function() {
+      controls.press();
+      clicked -= 1;
       // this._clearLogs();
       if (frameCount % 50 === 0) {
         // console.clear();
@@ -1277,9 +2132,13 @@ var fadeBg = get();
       background(0, 0);
       createGame();
       fill(0);
-      text(this.__frameRate, 100, 100);
-      // image(chars['orc'],0,0,width,height)
 
+      pushMatrix();
+      translate(120, 0);
+      displayStats(this.__frameRate);
+      popMatrix();
+      // text(this.__frameRate, 100, 100);
+      // image(chars['orc'],0,0,width,height)
     };
 
     keyPressed = function() {
@@ -1288,36 +2147,51 @@ var fadeBg = get();
     keyReleased = function() {
       keys[keyCode] = false;
     };
-
+    mousePressed = function() {
+      if (controls.isin()) {
+        controls.isClicked = true;
+      }
+    };
+    mouseReleased = function() {
+      controls.isClicked = false;
+    };
     mouseClicked = function() {
       for (var i = 0; i < btns.length; i++) {
-
         if (
           btns[i].scene === scene ||
           (btns[i].scene === "*" && scene !== "main")
         ) {
-          btns[i].click();
+          if (clicked < 0) {
+            btns[i].click();
+            text("PLOP", 10, 10, 100, 100);
+          }
         }
       }
-    };
-    mouseScrolled = function(){
-      
-      for(var i = btns.length-1; i >= 0; i --){
 
-        if(btns[i].scrollable){
-          btns[i].y-= mouseScroll * 10;
+      if (
+        window.location.href ===
+        "https://lord-of-the-rings-game.glitch.me/?DUCKS_RULE"
+      ) {
+        println("hi");
+        collectedCoins = 9999;
+      }
+      // println("hi");
+    };
+    mouseScrolled = function() {
+      for (var i = btns.length - 1; i >= 0; i--) {
+        if (btns[i].scrollable) {
+          btns[i].y += mouseScroll * 10;
         }
       }
-      
     };
     ///////////////////////
   }
-  window.addEventListener("resize", onWindowResize, false);
-  function onWindowResize() {
-    var WIDTH = window.innerWidth;
-    var HEIGHT = window.innerHeight;
-    const canvasSize = WIDTH < HEIGHT ? WIDTH : HEIGHT;
-    size(canvasSize, canvasSize);
-  }
+  // window.addEventListener("resize", onWindowResize, false);
+  // function onWindowResize() {
+  //   var WIDTH = window.innerWidth;
+  //   var HEIGHT = window.innerHeight;
+  //   const canvasSize = WIDTH < HEIGHT ? WIDTH : HEIGHT;
+  //   size(canvasSize, canvasSize);
+  // }
 };
 var processing = new Processing(canvas, code);
