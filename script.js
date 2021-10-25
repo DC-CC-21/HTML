@@ -121,127 +121,24 @@ var code = function(js) {
         "000,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,c ,000",
         "h13,00,00,00,00,00,00,00,00,00,00,00,000"
       ],
-      // [
-      //   "h15,   ,  ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,   ",
-      //   "v13,c  ,c ,c  ,c ,c ,c ,g ,c ,c ,c ,c ,c ,c ,v13",
-      //   "000,c ,v11,c ,c  ,  ,h3,00,00,  ,c ,c ,v11,c ,000",
-      //   "000,c ,000,h1,c ,c ,c ,h1,c ,c ,c ,h1,000,c ,000",
-      //   "000,c ,000,c ,c ,v3,c ,  ,c ,v3,c ,c ,000,c ,000",
-      //   "000,c ,000,c ,h1,00,c ,h1,c ,00,h1,c ,000,c ,000",
-      //   "000,c ,000,c ,c ,00,c ,c ,c ,00,c ,c ,000,c ,000",
-      //   "000,g ,000,h1,c ,c ,c ,p ,c ,c ,c ,h1,000,g ,000",
-      //   "000,c ,000,c ,c ,v3,c ,c ,c ,v3,c ,c ,000,c ,000",
-      //   "000,c ,000,c ,h1,00,c ,h1,c ,00,h1,c ,000,c ,000",
-      //   "000,c ,000,c ,c ,00,c ,  ,c ,00,c ,c ,000,c ,000",
-      //   "000,c ,000,h1,c ,c ,c ,h1,c ,c ,c ,h1,000,c ,000",
-      //   "000,c ,000,c ,c ,  ,h3,00,00,  ,c ,c ,000,c ,000",
-      //   "000,c ,c  ,c ,c ,c ,c ,g ,c ,c ,c ,c ,c  ,c ,000",
-      //   "h15,  ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,   ,  ,   "
-      // ],
       [
-        "h15,00,000,00,00,00,00,00,00,00,00,00,00,00,00 ",
-        "v13,  ,c  ,c ,c ,c ,c ,g ,c ,c ,c ,c ,c ,c ,v13",
-        "000,  ,v11,c ,c ,  ,h3,00,00,  ,c ,c ,v11,c ,000",
-        "000,  ,000,h1,c ,c ,c ,h1,c ,c ,c ,h1,000,c ,000",
-        "000,  ,000,c ,c ,v3,c ,  ,c ,v3,c ,c ,000,c ,000",
-        "000,  ,000,c ,h1,00,c ,h1,c ,00,h1,c ,000,c ,000",
-        "000,  ,000,c ,c ,00,c ,c ,c ,00,c ,c ,000,c ,000",
-        "000,g ,000,h1,c ,c ,c ,p ,c ,c ,c ,h1,000,g ,000",
-        "000,  ,000,c ,c ,v3,c ,c ,c ,v3,c ,c ,000,c ,000",
-        "000,  ,000,c ,h1,00,c ,h1,c ,00,h1,c ,000,c ,000",
-        "000,  ,000,c ,c ,00,c ,  ,c ,00,c ,c ,000,c ,000",
-        "000,  ,000,h1,c ,c ,c ,h1,c ,c ,c ,h1,000,c ,000",
-        "000,  ,000,c ,c ,  ,h3,00,00,  ,c ,c ,000,c ,000",
-        "000,  ,   ,c ,c ,c ,c ,g ,c ,c ,c ,c ,c  ,c ,000",
-        "h15,00,000,00,00,00,00,00,00,00,00,00,000,00,000"
-      ],
-      [
-        "h18,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000",
-        "v13,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,v13",
-        "000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,v2,  ,  ,000",
-        "000,  ,  ,  ,v1,  ,  ,  ,  ,  ,  ,  ,  ,00,  ,  ,000",
-        "000,  ,  ,  ,  ,v1,  ,  ,  ,  ,  ,  ,h3,00,00,  ,000",
-        "000,  ,g ,  ,  ,  ,v5,  ,  ,  ,  ,  ,v5,  ,  ,  ,000",
-        "000,  ,v1,  ,  ,  ,00,g ,v3,  ,  ,  ,00,  ,  ,  ,000",
-        "000,  ,  ,h7,00,00,00,00,00,00,  ,p ,00,g ,v1,  ,000",
-        "000,  ,v1,  ,  ,  ,00,g ,00,  ,  ,  ,00,  ,  ,  ,000",
-        "000,  ,g ,  ,  ,  ,00,  ,  ,  ,  ,  ,00,  ,  ,  ,000",
-        "000,  ,  ,  ,  ,v1,  ,  ,  ,  ,  ,  ,h3,00,00,  ,000",
-        "000,  ,  ,  ,v1,  ,  ,  ,  ,  ,  ,  ,  ,v2,  ,  ,000",
-        "000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,00,  ,  ,000",
-        "000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000",
-        "h18,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000"
-      ],
-      [
-        "h17,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000",
-        "v15,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,v15",
-        "000,  ,g ,v1,  ,v3,  ,h3,00,00,  ,v3,  ,v2,g ,  ,000",
-        "000,  ,h2,00,  ,00,  ,  ,  ,  ,  ,00,  ,00,h1,  ,000",
-        "000,  ,  ,  ,  ,00,  ,  ,  ,  ,  ,00,  ,  ,  ,  ,000",
-        "000,  ,h4,00,00,00,  ,v2,  ,v2,  ,h4,00,00,00,  ,000",
-        "000,  ,  ,  ,  ,  ,  ,00,  ,00,  ,  ,  ,  ,  ,  ,000",
-        "000,  ,v3,  ,  ,h3,00,00,  ,h3,00,00,  ,  ,v3,  ,000",
-        "000,  ,00,  ,  ,  ,  ,  ,p ,  ,  ,  ,  ,  ,00,  ,000",
-        "000,  ,00,  ,  ,h3,00,00,  ,h3,00,00,  ,  ,00,  ,000",
-        "000,  ,  ,  ,  ,  ,  ,v2,  ,v2,  ,  ,  ,  ,  ,  ,000",
-        "000,  ,h4,00,00,00,  ,00,  ,00,  ,h4,00,00,00,  ,000",
-        "000,  ,  ,  ,  ,v3,  ,  ,  ,  ,  ,v3,  ,  ,  ,  ,000",
-        "000,  ,h2,00,  ,00,  ,  ,  ,  ,  ,00,  ,h2,00,  ,000",
-        "000,  ,g ,v1,  ,00,  ,h3,00,00,  ,00,  ,v1,g ,  ,000",
-        "000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000",
-        "h17,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000"
-      ],
-      [
-        "h21,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000",
-        "v11,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,v11",
-        "000,  ,v8,  ,  ,  ,  ,g ,h2,00,  ,  ,h3,00,00,  ,v8,h2,00,  ,g ,000",
-        "000,  ,00,  ,  ,  ,  ,v6,NN,NN,v6,  ,  ,v7,  ,  ,00,NN,NN,v2,  ,000",
-        "000,  ,00,  ,  ,  ,  ,00,NN,NN,00,  ,  ,00,  ,  ,00,NN,NN,00,  ,000",
-        "000,  ,00,  ,  ,  ,  ,00,NN,NN,00,  ,  ,00,  ,  ,00,h2,00,  ,  ,000",
-        "000,  ,00,  ,  ,  ,  ,00,NN,NN,00,p ,  ,00,  ,  ,00,v1,  ,  ,  ,000",
-        "000,  ,00,  ,g ,  ,  ,00,NN,NN,00,  ,  ,00,  ,  ,00,  ,v1,  ,  ,000",
-        "000,  ,00,  ,  ,  ,  ,00,NN,NN,00,  ,  ,00,  ,  ,00,  ,  ,v2,  ,000",
-        "000,  ,00,h3,00,00,  ,  ,h2,00,  ,  ,  ,00,  ,  ,00,g ,  ,00,  ,000",
-        "000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000",
-        "h21,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000"
-      ],
-      [
-        "h17,00,00,000,00,00,00,00,00,00,00,00,00,00,00,00,00,000",
-        "v13,p ,  ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,v13",
-        "000,  ,  ,h4 ,00,00,00,  ,  ,h4,00,00,00,  ,  ,  ,  ,000",
-        "000,  ,h2,000,  ,  ,  ,  ,  ,  ,  ,  ,h2,00,  ,  ,  ,000",
-        "000,  ,v2,   ,  ,h6,00,00,00,00,00,  ,  ,v2,  ,  ,  ,000",
-        "000,  ,00,   ,h2,00,  ,  ,  ,  ,  ,  ,  ,00,  ,  ,  ,000",
-        "000,  ,  ,   ,v1,  ,  ,g ,g ,  ,  ,  ,  ,  ,  ,  ,  ,000",
-        "000,  ,  ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000",
-        "000,  ,v2,   ,  ,  ,  ,g ,g ,  ,  ,  ,  ,v2,  ,  ,  ,000",
-        "000,  ,00,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,00,  ,v3,  ,000",
-        "000,  ,h2,000,  ,  ,  ,  ,  ,  ,  ,  ,h2,00,  ,00,  ,000",
-        "000,  ,  ,h4 ,00,00,00,  ,  ,h4,00,00,00,  ,  ,00,  ,000",
-        "000,  ,  ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,h2,00,  ,000",
-        "000,  ,  ,h12,00,00,00,00,00,00,00,00,00,00,  ,  ,  ,000",
-        "000,  ,  ,   ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000",
-        "h17,00,00,000,00,00,00,00,00,00,00,00,00,00,00,00,00,000"
-      ],
-      [
-        "h19,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000",
-        "v13,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,v13",
-        "000,  ,  ,v3,  ,  ,  ,v3,  ,  ,  ,  ,  ,  ,v3,  ,v2,v2,  ,v3,  ,000",
-        "000,  ,  ,00,  ,v2,  ,00,  ,  ,  ,  ,v1,  ,00,  ,  ,  ,  ,00,  ,000",
-        "000,  ,  ,00,  ,00,  ,00,  ,  ,  ,v1,  ,  ,00,  ,  ,  ,  ,00,  ,000",
-        "000,  ,  ,h5,00,00,00,00,  ,  ,  ,  ,  ,  ,h6,00,00,00,00,00,  ,000",
-        "000,  ,  ,  ,v6,  ,v6,  ,  ,  ,  ,  ,v1,  ,  ,v6,  ,  ,v6,  ,  ,000",
-        "000,  ,  ,  ,00,  ,00,  ,  ,  ,  ,v1,  ,  ,  ,00,  ,  ,00,  ,  ,000",
-        "000,  ,  ,  ,00,  ,00,  ,  ,  ,v1,  ,  ,  ,  ,00,g ,  ,00,  ,  ,000",
-        "000,  ,  ,  ,00,  ,00,p ,  ,  ,  ,  ,  ,  ,  ,00,  ,  ,00,  ,  ,000",
-        "000,  ,  ,  ,00,  ,00,  ,  ,  ,  ,  ,  ,  ,  ,00,  ,  ,00,  ,  ,000",
-        "000,  ,  ,  ,00,  ,00,  ,  ,  ,  ,  ,  ,  ,  ,00,  ,  ,00,  ,  ,000",
-        "000,  ,  ,h2,00,  ,h2,00,  ,  ,  ,  ,  ,  ,  ,00,  ,  ,00,  ,  ,000",
-        "000,  ,h2,00,  ,  ,  ,h2,00,  ,  ,  ,  ,  ,h2,00,  ,  ,h2,00,  ,000",
-        "000,  ,v1,  ,  ,g ,  ,  ,v1,  ,  ,  ,  ,  ,v1,  ,  ,  ,  ,v1,  ,000",
-        "000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000",
-        "h19,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000"
+        "h1,h1,h1,h1,h1,h1,h1,h1,h1,h1,h1,h1,h1,h1,h1 ",
+        "h1,  ,c ,c ,c ,c ,c ,g ,c ,c ,c ,c ,c ,c ,h1",
+        "h1,  ,h1,c ,c ,  ,h1,h1,h1,  ,c ,c ,h1,c ,h1",
+        "h1,  ,h1,h1,c ,c ,c ,h1,c ,c ,c ,h1,h1,c ,h1",
+        "h1,  ,h1,c ,c ,h1,c ,  ,c ,h1,c ,c ,h1,c ,h1",
+        "h1,  ,h1,c ,h1,h1,c ,h1,c ,h1,h1,c ,h1,c ,h1",
+        "h1,  ,h1,c ,c ,h1,c ,c ,c ,h1,c ,c ,h1,c ,h1",
+        "h1,g ,h1,h1,c ,c ,c ,p ,c ,c ,c ,h1,h1,g ,h1",
+        "h1,  ,h1,c ,c ,h1,c ,c ,c ,h1,c ,c ,h1,c ,h1",
+        "h1,  ,h1,c ,h1,h1,c ,h1,c ,h1,h1,c ,h1,c ,h1",
+        "h1,  ,h1,c ,c ,h1,c ,  ,c ,h1,c ,c ,h1,c ,h1",
+        "h1,  ,h1,h1,c ,c ,c ,h1,c ,c ,c ,h1,h1,c ,h1",
+        "h1,  ,h1,c ,c ,  ,h1,h1,h1,  ,c ,c ,h1,c ,h1",
+        "h1,  ,  ,c ,c ,c ,c ,g ,c ,c ,c ,c ,c ,c ,h1",
+        "h1,h1,h1,h1,h1,h1,h1,h1,h1,h1,h1,h1,h1,h1,h1"
       ]
+
       // [
       //    "h17,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000",
       //    'v13,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,v13',
@@ -250,8 +147,7 @@ var code = function(js) {
       //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
       //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
       //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
-      //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,g ,000',
-      //    '000,  ,  ,  ,  ,  ,p ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
+      //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,g ,00000,00,0//    '000,  ,  ,  ,  ,  ,p ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
       //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
       //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
       //    '000,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,000',
@@ -275,6 +171,7 @@ var code = function(js) {
       moria,
       beacons
     ];
+        var imagesLoaded = 0;
     var chars = {
       legolas: loadImage(
         "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FLegolas.svg?v=1634360487219"
@@ -300,7 +197,11 @@ var code = function(js) {
         "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FBarrel.png?v=1634359742592"
       ),
       sam: loadImage(
-        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FSam.svg?v=1634691131978"
+        "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FSam.svg?v=1634691131978",
+        img => {
+   println('loaded')
+  }
+        // 'https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2FSam.png?v=1635196717731'
       ),
       elrond: loadImage(
         "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Felrond.svg?v=1634691346343"
@@ -315,6 +216,7 @@ var code = function(js) {
         "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Frock4.svg?v=1634763090870"
       )
     };
+    
     var grayscale = {
       legolas: loadImage(
         "https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Flegolas_grayscale.svg?v=1634955792998"
@@ -359,11 +261,11 @@ var code = function(js) {
     for (var i = 0; i < Object.keys(chars).length; i++) {
       imgs[Object.keys(chars)[i]] = false;
     }
-
+    
     // chars.rock = loadImage('https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Frock2.svg?v=1634761814043')
     // chars.rock = loadImage('https://cdn.glitch.me/b66bf39b-233c-468a-8a28-13aa4bee15a2%2Frock3.svg?v=1634762036767')
     /** -- vars -- **/
-    var bSize = ~~(map(~~36.36363636363637, 0, 400, 0, width) * 1);
+    var bSize = ~~(map(~~36.36363636363637, 0, 400, 0, width) * 1.1);
     var character = "sam";
     // var lvl = (gameBoard.length-1)*0;
     var lvl = 0;
@@ -371,14 +273,15 @@ var code = function(js) {
     var drawOnce = 0;
     var letter = 0;
     var currentCoins = 0;
-    var collectedCoins = localStorage.getItem("coins") || 0;
+    var collectedCoins = Number(localStorage.getItem("coins")) || 0;
     var gameBoardSplit = Array.from(Array(300), () => new Array(12));
     var scroll_y = 0;
     var purchasing = false;
     var equipping = false;
+
     // var inputBox = document.getElementById("input-container");
     // var root = document.querySelector(":root");
-    /** -- Classes -- **/
+    /** -- FUNCTIONS -- **/
     function collide(p, b) {
       return (
         p.x - b.x < b.w && b.x - p.x < p.w && p.y - b.y < b.h && b.y - p.y < p.h
@@ -394,22 +297,24 @@ var code = function(js) {
     );
     println(encrypted);
     println(decrypted.toString(CryptoJS.enc.Utf8));
-
+    function loadImages(){
+      imagesLoaded+=1;
+    }
     function displayStats(stat) {
       fill(255);
       stroke(0);
-      textSize(map(20, 0, 474, 0, canvasSize));
+      textSize(map(25, 0, 474, 0, canvasSize));
       rect(
-        map(68, 0, 474, 0, canvasSize),
+        map(73, 0, 474, 0, canvasSize),
         map(8, 0, 474, 0, canvasSize),
         textWidth(stat) + map(30.5, 0, 512, 0, canvasSize),
-        map(21, 0, 474, 0, canvasSize)
+        map(30, 0, 474, 0, canvasSize)
       );
 
       image(
         chars.ring,
-        map(80, 0, 532, 0, canvasSize),
-        map(11, 0, 532, 0, canvasSize),
+        map(87, 0, 532, 0, canvasSize),
+        map(16, 0, 532, 0, canvasSize),
         map(20, 0, 532, 0, canvasSize),
         map(20, 0, 532, 0, canvasSize)
       );
@@ -417,10 +322,19 @@ var code = function(js) {
       textAlign(LEFT, TOP);
 
       fill(0);
-      text(stat, map(91, 0, 474, 0, canvasSize), map(8, 0, 474, 0, canvasSize));
+      text(stat, map(98, 0, 474, 0, canvasSize), map(8, 0, 474, 0, canvasSize));
       popStyle();
     }
 
+    function Cos(deg) {
+      return cos(deg / (180 / Math.PI));
+    }
+
+    function Sin(deg) {
+      return sin(deg / (180 / Math.PI));
+    }
+
+    // -- CLASSES -- //
     var Block = (function() {
       Block = function(self) {
         this.x = self.x;
@@ -428,6 +342,8 @@ var code = function(js) {
         this.w = ~~self.w;
         this.h = ~~self.h;
         this.dir = self.dir;
+        this.prevX = this.x;
+        this.prevY = this.y;
       };
       Block.prototype.display = function() {
         this.prevX = this.x;
@@ -479,8 +395,8 @@ var code = function(js) {
         this.w = ~~(self.w * 1);
         this.h = ~~(self.h * 1);
         this.acl = new PVector(0, 0);
-        this.speed = 5;
-        this.img = loadImage();
+        this.speed = map(5, 0, 512, 0, canvasSize);
+
         this.aclx = 0;
         this.acly = 0;
       };
@@ -493,6 +409,7 @@ var code = function(js) {
 
         // rect(this.x, this.y, this.w, this.h);
         // tint(255,0,0)
+        // if(loadedImages){}
 
         image(
           chars[character],
@@ -592,6 +509,8 @@ var code = function(js) {
         this.newDirection = "left";
         this.collisions = 0;
         this.prevCollisions = this.collisions;
+        this.prevX = this.x;
+        this.prevY = this.y;
       }
       Ghost.prototype.LRcollide = function() {
         for (var i = blocks.length - 1; i >= 0; i--) {
@@ -1007,6 +926,7 @@ var code = function(js) {
         mapSize: "569"
       })
     ];
+
     class Button {
       constructor(self) {
         //583,660
@@ -1150,7 +1070,7 @@ var code = function(js) {
       //   h: 60,
       //   r: 5,
       //   color: { r: 34, g: 139, b: 34 },
-      //   text: "🔽",
+        // text: "🔽",
       //   textS: 40,
       //   textColor: { r: 255, g: 255, b: 0 },
       //   scene: "play",
@@ -1181,8 +1101,8 @@ var code = function(js) {
       new Button({
         x: 10,
         y: 10,
-        w: 60,
-        h: 25,
+        w: 70,
+        h: 35,
         r: 5,
         color: { r: 34, g: 139, b: 34 },
         text: "BACK",
@@ -1550,7 +1470,7 @@ var code = function(js) {
             equipping = this.char;
           }
         }
-      }), //TAURIEL BARREL
+      }), //LEGOLAS BARREL
       new Button({
         x: 250,
         y: 50,
@@ -1610,7 +1530,7 @@ var code = function(js) {
             equipping = this.char;
           }
         }
-      }), //GANDALF BARREL
+      }), //SAM BARREL
       new Button({
         x: 250,
         y: 220,
@@ -1673,10 +1593,11 @@ var code = function(js) {
             equipping = this.char;
           }
         }
-      })
+      }) //BOFUR
     ];
-    class Controls {
-      constructor(self) {
+    // -- Controls -- //
+    var Controls = (function() {
+      Controls = function(self) {
         this.keys = Object.keys(self);
         this.mappedSelf = {};
         for (var i = 0; i < this.keys.length; i++) {
@@ -1685,7 +1606,7 @@ var code = function(js) {
             0,
             self.map ? self.map : 512,
             0,
-            canvasSize
+            width
           );
         }
         for (var i = 0; i < this.keys.length; i++) {
@@ -1695,78 +1616,81 @@ var code = function(js) {
             this[this.keys[i]] = self[this.keys[i]];
           }
         }
-        this.moveX = this.x;
-        this.moveY = this.y;
-        this.isClicked = false;
-        var a = { x: this.moveX, y: this.moveY, r: this.r2 };
-        var b = { x: this.x, y: this.y, r: this.r };
-      }
-      display() {
-        fill(200);
+
+        this.minX = ((this.r - this.r2) / 2) * Cos(180) + this.x; //180Left//0Right
+        this.maxX = ((this.r - this.r2) / 2) * Cos(0) + this.x; //180Left//0Right
+
+        this.minY = ((this.r - this.r2) / 2) * Sin(-90) + this.y; //-90Top//90Bottom
+        this.maxY = ((this.r - this.r2) / 2) * Sin(90) + this.y; //-90Top//90Bottom
+      };
+      Controls.prototype.display = function() {
         ellipse(this.x, this.y, this.r, this.r);
-
-        fill(100);
         ellipse(this.moveX, this.moveY, this.r2, this.r2);
-      }
-      isin() {
-        return dist(mouseX, mouseY, this.x, this.y) < this.r;
-
-        return false;
-      }
-      circleConstrain(a, b) {
-        var dst = dist(a.x, a.y, b.x, b.y);
-        var angle = atan2(a.y - b.y, a.x - b.x);
-        if (dst > (b.r - a.r) / 2) {
-          a.x = ((b.r - a.r) / 2) * cos(angle) + b.x;
-          a.y = ((b.r - a.r) / 2) * sin(angle) + b.y;
-        }
-        return {
-          x: a.x,
-          y: a.y,
-          minA: ((b.r - a.r) / 2) * sin(0) + b.y,
-          maxA: ((b.r - a.r) / 2) * sin(360) + b.y
-        };
-      }
-      press() {
+      };
+      Controls.prototype.isin = function() {
+        return dist(this.x, this.y, mouseX, mouseY) < this.r;
+      };
+      Controls.prototype.move = function() {
         if (this.isClicked) {
           this.moveX = mouseX;
           this.moveY = mouseY;
-
-          var a = { x: this.moveX, y: this.moveY, r: this.r2 };
-          var b = { x: this.x, y: this.y, r: this.r };
-          this.constrain = this.circleConstrain(a, b);
-          println(this.constrain.minA);
-          // this.minA = this.constrain.minA;
-          // this.maxA = this.constrain.maxA;
-          this.moveX = a.x;
-          this.moveY = a.y;
-          player[0].acl.x = map(
-            this.moveX,
-            this.minA,
-            this.maxA,
-            -player[0].speed,
-            player[0].speed
-          );
-          println(player[0].acl.x);
         } else {
           this.moveX = this.x;
           this.moveY = this.y;
         }
-      }
-    }
+        this.circleConstrain();
+      };
+      Controls.prototype.circleConstrain = function() {
+        var dst = dist(this.x, this.y, this.moveX, this.moveY);
+        var angle = atan2(this.moveY - this.y, this.moveX - this.x);
+        // _clearLogs();
+
+        if (dst > (this.r - this.r2) / 2) {
+          this.moveX = ((this.r - this.r2) / 2) * cos(angle) + this.x; //180Left//0Right
+          this.moveY = ((this.r - this.r2) / 2) * sin(angle) + this.y; //-90Top//90Bottom
+        }
+
+        // println(this.moveX);
+        // println(this.moveY);
+        // println(map(this.moveX,this.minX,this.maxX,-5,5));
+        // println(map(this.moveY,this.minY,this.maxY,-5,5));
+
+        player[0].acl.x = map(
+          this.moveX,
+          this.minX,
+          this.maxX,
+          -player[0].speed,
+          player[0].speed
+        );
+        player[0].acl.y = map(
+          this.moveY,
+          this.minY,
+          this.maxY,
+          -player[0].speed,
+          player[0].speed
+        );
+      };
+      return Controls;
+    })();
     var controls = new Controls({
-      // map:512,
-      x: 60,
-      y: 512 - 60,
+      x: 100,
+      y: 512 - 100,
       r: 100,
-      r2: 30
+
+      moveX: 200,
+      moveY: 400,
+      r2: 50,
+      map: 512,
+      isClicked: false
     });
+
+    ////////////////////
     // lvl = gameBoard.length-1;
     scene = "play";
     purchasing = "";
     equipping = "";
     var loading = false;
-
+    lvl = 1;
     // -- GAME -- //
     var Game = (function() {
       Game = function(self) {
@@ -2035,6 +1959,8 @@ var code = function(js) {
       drawOnce = 1;
       switch (scene) {
         case "play":
+          controls.move();
+
           image(images[g.img], 0, 0, canvasSize, canvasSize);
           pushMatrix();
           g.trans();
@@ -2112,7 +2038,10 @@ var code = function(js) {
       }
 
       if (purchasing) {
+        if(imgs[purchasing]){purchasing = false;}
+        else{
         g.purchasing();
+        }
       }
       if (equipping) {
         g.equipping();
@@ -2123,7 +2052,6 @@ var code = function(js) {
     }
     var clicked = 0;
     draw = function() {
-      controls.press();
       clicked -= 1;
       // this._clearLogs();
       if (frameCount % 50 === 0) {
@@ -2138,7 +2066,7 @@ var code = function(js) {
       displayStats(this.__frameRate);
       popMatrix();
       // text(this.__frameRate, 100, 100);
-      // image(chars['orc'],0,0,width,height)
+      // image(chars['frodo'],0,0,width,height)
     };
 
     keyPressed = function() {
@@ -2147,6 +2075,8 @@ var code = function(js) {
     keyReleased = function() {
       keys[keyCode] = false;
     };
+
+    // -- MOUSE EVENTS -- //
     mousePressed = function() {
       if (controls.isin()) {
         controls.isClicked = true;
@@ -2163,7 +2093,6 @@ var code = function(js) {
         ) {
           if (clicked < 0) {
             btns[i].click();
-            text("PLOP", 10, 10, 100, 100);
           }
         }
       }
@@ -2184,14 +2113,27 @@ var code = function(js) {
         }
       }
     };
+
+    // -- TOUCH EVENTS -- //
+    function touchstart(e) {
+      e.preventDefault();
+      if (controls.isin(e.pageX, e.pageY)) {
+        controls.isClicked = true;
+      }
+    }
+    function touchmove(e) {
+      e.preventDefault();
+      mouseX = e.pageX;
+      mouseY = e.pageY;
+    }
+    function touchend() {
+      // e.preventDefault();
+      controls.isClicked = false;
+    }
+    document.addEventListener("touchmove", touchmove, false);
+    document.addEventListener("touchstart", touchstart, false);
+    document.addEventListener("touchend", touchend, false);
     ///////////////////////
   }
-  // window.addEventListener("resize", onWindowResize, false);
-  // function onWindowResize() {
-  //   var WIDTH = window.innerWidth;
-  //   var HEIGHT = window.innerHeight;
-  //   const canvasSize = WIDTH < HEIGHT ? WIDTH : HEIGHT;
-  //   size(canvasSize, canvasSize);
-  // }
 };
 var processing = new Processing(canvas, code);
