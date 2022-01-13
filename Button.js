@@ -26,7 +26,7 @@ class Button {
       fill(this.tFill || 255);
       stroke(this.tStroke || this.tFill)
       textSize(this.tSize);
-      text(this.text,this.tx,this.ty);
+      text(this.text,this.x + this.tx, this.y + this.ty);
     }
     
   }
