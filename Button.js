@@ -22,6 +22,13 @@ class Button {
       case "ellipse":
         ellipse(this.x, this.y, this.radius, this.radius);
     }
+    if(this.text){
+      fill(this.tFill || 255);
+      stroke(this.tStroke || this.tFill)
+      textSize(this.tSize);
+      text(this.text,this.tx,this.ty);
+    }
+    
   }
   isin() {
     if (this.shape === "rect") {
